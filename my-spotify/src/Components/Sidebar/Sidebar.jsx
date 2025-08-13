@@ -1,38 +1,37 @@
 import { PanelRightOpen, Plus, Music, Folder, Blend } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useBarContext } from "../../Contexts/BarContext";
 
-const Sidebar = ({isBigSidebarOpen, setBigSidebarOpen}) => {
-  
+const Sidebar = () => {
   const [isAddpfj, setAddpfj] = useState(false);
   const addCreatepfjRef = useRef(null);
+  const { isBigSidebarOpen, setBigSidebarOpen } = useBarContext();
 
   useEffect(() => {
-
     function handleClickOutside(event) {
-      if(addCreatepfjRef.current && !addCreatepfjRef.current.contains(event.target))
-      {
+      if (
+        addCreatepfjRef.current &&
+        !addCreatepfjRef.current.contains(event.target)
+      ) {
         setAddpfj(false);
       }
     }
 
-if(isAddpfj)
-{
-  document.addEventListener("mousedown", handleClickOutside);
-}else{
-  document.removeEventListener("mousedown", handleClickOutside);
-}
+    if (isAddpfj) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
 
-return () => {
-document.removeEventListener("mousedown", handleClickOutside);
-}
-    
-
-  }, [isAddpfj])
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isAddpfj]);
 
   return (
     <div>
       {isBigSidebarOpen && (
-        <div className="h-screen group/bar w-[329px] bg-[#121212] z-[90] fixed left-0  ">
+        <div className="h-screen group/bar w-[394px] bg-[#121212] z-[90] fixed left-0  ">
           <div className="flex items-center justify-between mt-[73px] px-9">
             <div className="flex items-center gap-x-3">
               <div className="relative group/collapseSidebar">
@@ -78,7 +77,10 @@ whitespace-nowrap pointer-events-none"
               </div>
 
               {isAddpfj && (
-                <div ref={addCreatepfjRef} className="absolute w-[300px] mt-2 z-20 shadow-[rgba(0,0,0,0.35)_0px_5px_15px] bg-[#262626] -translate-x-1/12 left-1/2 rounded-[8px] mb-2">
+                <div
+                  ref={addCreatepfjRef}
+                  className="absolute w-[300px] mt-2 z-20 shadow-[rgba(0,0,0,0.35)_0px_5px_15px] bg-[#262626] -translate-x-1/12 left-1/2 rounded-[8px] mb-2"
+                >
                   <div className="px-2 py-2">
                     <div className="flex group/playlist items-center gap-x-3 hover:bg-[#3E3E3E] transition-colors duration-150 px-3 py-3 rounded">
                       <div className="px-4 py-4 rounded-[50%] bg-[#545454] inline-block whitespace-nowrap">
@@ -204,7 +206,10 @@ pointer-events-none"
               </div>
 
               {isAddpfj && (
-                <div ref={addCreatepfjRef} className="absolute w-[300px] mt-2 z-20 shadow-[rgba(0,0,0,0.35)_0px_5px_15px] bg-[#262626] -translate-x-1/12 left-1/2 rounded-[8px] mb-2">
+                <div
+                  ref={addCreatepfjRef}
+                  className="absolute w-[300px] mt-2 z-20 shadow-[rgba(0,0,0,0.35)_0px_5px_15px] bg-[#262626] -translate-x-1/12 left-1/2 rounded-[8px] mb-2"
+                >
                   <div className="px-2 py-2">
                     <div className="flex group/playlist items-center gap-x-3 hover:bg-[#3E3E3E] transition-colors duration-150 px-3 py-3 rounded">
                       <div className="px-4 py-4 rounded-[50%] bg-[#545454] inline-block whitespace-nowrap">

@@ -1,27 +1,19 @@
-
-import { useState } from "react";
-import Navbar from "./Components/Navbar/Navbar";
-import Sidebar from "./Components/Sidebar/Sidebar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PageLayout from "./PageLayout";
+import Playlist from "./Mainfiles.jsx/Playlist";
 import Home from "./Mainfiles.jsx/Home";
-import Footer from "./Components/Footer/Footer";
-
-
 
 function App() {
-
-  const [isBigSidebarOpen, setBigSidebarOpen] = useState(true);
-
   return (
     <>
-      <div>
-     <Navbar />
-     <div className="flex">
-      <Sidebar isBigSidebarOpen={isBigSidebarOpen} setBigSidebarOpen={setBigSidebarOpen}/>
-      <Home isBigSidebarOpen={isBigSidebarOpen} />
-      </div>
-      <Footer />
-  
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PageLayout />}>
+            <Route index element={<Home />} />
+            <Route path="/playlist/:id" element={<Playlist />} />
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }

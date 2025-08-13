@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="w-full fixed top-0 z-[100] bg-[#000000] h-21">
+      <div className="w-full fixed top-0 z-[100] bg-[#000000]">
         <div className="flex align-middle items-center justify-between ps-9 pe-5 py-4">
           <div className="flex-none w-1/4">
             <img className="h-11" title="Spotify" src={logo}></img>

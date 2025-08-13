@@ -1,5 +1,5 @@
 import { Shuffle, SkipBack, Pause, SkipForward, Repeat } from "lucide-react";
-import song1 from "../../assets/songs/tsong1.mp3";
+// import song1 from "../../assets/songs/tsong1.mp3";
 
 const FooterPlayer = () => {
   return (
