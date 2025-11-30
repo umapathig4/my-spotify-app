@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useColor } from "../../Contexts/ColorContext";
 import { MusicLoading } from "../Loading/MusicLoading";
 import { Play } from "lucide-react";
@@ -11,16 +11,28 @@ const RecentPlayed = ({
   loadingReacentPlayed,
 }) => {
   const { imgRefs, handleMouseEnter, handleMouseLeave } = useColor();
-  const { id } = useParams();
-
-  console.log(id);
-  
-
 
   const navigate = useNavigate();
 
-
-  
+  const handleMovePlaylist = (
+    playedName,
+    playedImage,
+    playedQuote,
+    playedInsight,
+    playedSong
+  ) => {
+    navigate(`/playlist/${nanoid(6)}`, {
+      state: {
+        name: playedName,
+        quote: playedQuote,
+        image: playedImage,
+        insight: playedInsight,
+        song:  playedSong
+      },
+    });
+    
+    
+  };
 
   {
     errorRecentPlayed && <p className="text-red-400">{errorRecentPlayed}</p>;
@@ -32,10 +44,18 @@ const RecentPlayed = ({
       {isRecentPlayedAssets.map((recentPlayed, index) => (
         <div
           key={index}
-          onClick={() => navigate(`/playlist/${nanoid(6)}`)}
+          onClick={() =>
+            handleMovePlaylist(
+              recentPlayed.name,
+              recentPlayed.image,
+              recentPlayed.quote,
+              recentPlayed.insight,
+              recentPlayed.song
+            )
+          }
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
-          className={`flex items-center justify-between group/recentPlayed pe-3 ${
+          className={`flex items-center cursor-pointer justify-between group/recentPlayed pe-3 ${
             isPlayingbarOpen ? "max-w-[357px]" : "max-w-[335px]"
           } bg-[var(--color-lightgrey)] w-full rounded-[4px] hover:bg-[var(--color-dimgrey)]`}
         >
@@ -55,7 +75,7 @@ const RecentPlayed = ({
           </div>
 
           <div
-            className=" opacity-0 bg-[#65D46E] px-3 py-3 rounded-[50%] bottom-[0px] right-[25px]
+            className="opacity-0 bg-[#65D46E] px-3 py-3 rounded-[50%] bottom-[0px] right-[25px]
      group-hover/recentPlayed:opacity-100 transition-opacity duration-150"
           >
             <Play className="text-black h-[15px] w-[15px]" />

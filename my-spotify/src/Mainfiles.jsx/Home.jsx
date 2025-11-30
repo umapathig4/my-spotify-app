@@ -20,8 +20,7 @@ export default function SpotifyLayout() {
 
   const finalStyle = isColor ? bgColor : topGradientStyle;
 
-    const {isBigSidebarOpen,  isPlayingbarOpen} = useBarContext();
-  
+  const { isBigSidebarOpen, isPlayingbarOpen } = useBarContext();
 
   return (
     <div

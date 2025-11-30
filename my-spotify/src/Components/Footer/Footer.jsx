@@ -1,6 +1,6 @@
+import { useAudioContext } from "../../Contexts/AudioContext";
 import { useBarContext } from "../../Contexts/BarContext";
-import AudioPlayer from "../MusicPlayer/FooterPlayer";
-import img1 from "/public/albumimages/nowtrending.jpg";
+import FooterPlayer from "../MusicPlayer/FooterPlayer";
 import {
   CirclePlus,
   ListMusic,
@@ -14,12 +14,14 @@ import {
 
 const Footer = () => {
   const { handlePlayingbarOpen } = useBarContext();
+  const { currentImg } = useAudioContext();
+
   return (
     <div className="bg-black w-full h-[84px] fixed bottom-0 z-100">
       <div className="flex items-center justify-between px-[20px]">
         <div className="text-white flex items-center gap-5 w-[300px]">
           <div>
-            <img src={img1} className="h-[58px]"></img>
+            <img src={currentImg} className="h-[58px]"></img>
           </div>
           <div>
             <h1>Tum Hi Ho</h1>
@@ -42,7 +44,7 @@ whitespace-nowrap pointer-events-none"
         </div>
 
         <div>
-          <AudioPlayer />
+          <FooterPlayer />
         </div>
 
         <div className="text-white w-[300px]">

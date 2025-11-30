@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/navbar/logo.png";
 import {
   CircleArrowDown,
@@ -14,21 +15,21 @@ const Navbar = () => {
   const [isProfileDropdown, setProfileDropdown] = useState(false);
   const [isPlaceholderTextVisible, setPlaceholderTextVisible] = useState(false);
   const accountDropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleClickOutside = (event) => {
-      if (
-        accountDropdownRef.current &&
-        !accountDropdownRef.current.contains(event.target)
-      ) {
-        setProfileDropdown(false);
-      }
-    };
+    if (
+      accountDropdownRef.current &&
+      !accountDropdownRef.current.contains(event.target)
+    ) {
+      setProfileDropdown(false);
+    }
+  };
 
   useEffect(() => {
-    
     if (isProfileDropdown) {
       document.addEventListener("mousedown", handleClickOutside);
-    } 
+    }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -46,7 +47,10 @@ const Navbar = () => {
           <div className="flex-grow mx-[130px]">
             <div className="flex align-middle gap-x-5">
               <div className="relative group cursor-pointer">
-                <div className="bg-[#292929] px-3 py-3 rounded-[50%] hover:bg-[#393838]">
+                <div
+                  onClick={() => navigate("/")}
+                  className="bg-[#292929] px-3 py-3 rounded-[50%] hover:bg-[#393838]"
+                >
                   <House className="text-white" />
                 </div>
                 <div
@@ -158,7 +162,7 @@ const Navbar = () => {
                         className="text-white cursor-pointer"
                         size={30}
                         onClick={(e) => {
-                          setProfileDropdown((prev) => !prev)
+                          setProfileDropdown((prev) => !prev);
                         }}
                       />
                     </div>

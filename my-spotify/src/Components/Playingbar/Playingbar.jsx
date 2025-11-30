@@ -8,9 +8,12 @@ import {
   ClipboardPlus,
 } from "lucide-react";
 import { useBarContext } from "../../Contexts/BarContext";
+import { useAudioContext } from "../../Contexts/AudioContext";
 
 const Playingbar = () => {
   const { isPlayingbarOpen } = useBarContext();
+
+  const { currentImg } = useAudioContext();
 
   return (
     <div>
@@ -19,7 +22,7 @@ const Playingbar = () => {
           <div className="relative group/playingBar w-full h-[530px]">
             <img
               className="w-full h-full object-cover rounded"
-              src={img1}
+              src={currentImg}
               alt="Background"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black to-black opacity-80 group-hover/playingBar:opacity-70 transition-opacity duration-300"></div>

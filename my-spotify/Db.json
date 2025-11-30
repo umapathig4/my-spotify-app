@@ -127,85 +127,124 @@
     {
       "id": 1,
       "image": "/albumimages/hindi10s.jpeg",
-      "name": "Relive the biggest tracks of the Decade"
+      "name": "Relive the biggest tracks of the Decade",
+      "quote": "The golden chartbusters of 2010s are back!",
+      "insight": "1,25,412 saves • 52 songs • about 4 hr 15 min",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 2,
       "image": "/albumimages/chilltamil.jpeg",
-      "name": "Soothing Hits from 00s Cover : Trisha"
+      "name": "Soothing Hits from 00s Cover : Trisha",
+      "quote": "Ever loveable 'jaanu' is here",
+      "insight": "40,085 saves • 49 songs • about 4 hr",
+     "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 3,
       "image": "/albumimages/bestofindia.jpeg",
-      "name": "Best of the Indian India scene. Cover-Kushagra"
+      "name": "Best of the Indian India scene. Cover-Kushagra",
+      "quote": "Finest india voices shaping the nation’s vibe",
+      "insight": "98,563 saves • 60 songs • about 5 hr 20 min",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 4,
       "image": "/albumimages/trendiningvalen.jpeg",
-      "name": "India's ultimate love playlist - Bhediya"
+      "name": "India's ultimate love playlist - Bhediya",
+      "quote": "Every heartbeat in one playlist",
+      "insight": "76,421 saves • 48 songs • about 3 hr 40 min",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 5,
       "image": "/albumimages/chaiandclassice.jpeg",
-      "name": "A cup of tree served with some retro tunes."
+      "name": "A cup of tree served with some retro tunes.",
+      "quote": "Perfect brew for your musical evenings",
+      "insight": "55,210 saves • 45 songs • about 3 hr",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 6,
       "image": "albumimages/nowtrending.jpg",
-      "name": "Every track you're listening/should be listening to joy"
+      "name": "Every track you're listening/should be listening to joy",
+      "quote": "Fresh vibes trending across the country",
+      "insight": "1,12,008 saves • 50 songs • about 3 hr 50 min",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 7,
       "image": "albumimages/oldisgold.jpeg",
-      "name": "Soulful Hindi Songs for your nostalgic journey"
+      "name": "Soulful Hindi Songs for your nostalgic journey",
+      "quote": "Timeless gems to warm your heart",
+      "insight": "89,765 saves • 58 songs • about 5 hr 5 min",
+      "song": "/songs/Tumhiho.mp3"
     },
     {
       "id": 8,
       "image": "/albumimages/trendingmalu.jpeg",
-      "name": "Every song that's Trending NOW from Malayalam! Cover"
+      "name": "Every song that's Trending NOW from Malayalam! Cover",
+      "quote": "Kerala’s trending beats in one place",
+      "insight": "67,342 saves • 47 songs • about 3 hr 35 min",
+      "song": "/songs/Tumhiho.mp3"
     }
   ],
   "recentPlayedMusic": [
     {
       "id": 1,
       "image": "/albumimages/bestofindia.jpeg",
-      "name": "Best of the Indian India scene. Cover-Kushagra"
+      "name": "Best of the Indian India scene. Cover-Kushagra",
+      "quote": "Finest india voices shaping the nation’s vibe",
+      "insight": "98,563 saves • 60 songs • about 5 hr 20 min"
     },
     {
       "id": 2,
       "image": "/albumimages/trendiningvalen.jpeg",
-      "name": "India's ultimate love playlist - Bhediya"
+      "name": "India's ultimate love playlist - Bhediya",
+      "quote": "Every heartbeat in one playlist",
+      "insight": "76,421 saves • 48 songs • about 3 hr 40 min"
     },
     {
       "id": 3,
       "image": "/albumimages/hindi10s.jpeg",
-      "name": "Relive the biggest tracks of the Decade"
+      "name": "Relive the biggest tracks of the Decade",
+      "quote": "The golden chartbusters of 2010s are back!",
+      "insight": "1,25,412 saves • 52 songs • about 4 hr 15 min"
     },
     {
       "id": 4,
       "image": "/albumimages/chilltamil.jpeg",
-      "name": "Soothing Hits from 00s Cover : Trisha"
+      "name": "Soothing Hits from 00s Cover : Trisha",
+      "quote": "Ever loveable 'jaanu' is here",
+      "insight": "40,085 saves • 49 songs • about 4 hr"
     },
     {
       "id": 5,
       "image": "albumimages/oldisgold.jpeg",
-      "name": "Soulful Hindi Songs for your nostalgic journey"
+      "name": "Soulful Hindi Songs for your nostalgic journey",
+      "quote": "Timeless gems to warm your heart",
+      "insight": "89,765 saves • 58 songs • about 5 hr 5 min"
     },
     {
       "id": 6,
       "image": "/albumimages/trendingmalu.jpeg",
-      "name": "Every song that's Trending NOW from Malayalam! Cover"
+      "name": "Every song that's Trending NOW from Malayalam! Cover",
+      "quote": "Kerala’s trending beats in one place",
+      "insight": "67,342 saves • 47 songs • about 3 hr 35 min"
     },
-
     {
       "id": 7,
       "image": "/albumimages/chaiandclassice.jpeg",
-      "name": "A cup of tree served with some retro tunes."
+      "name": "A cup of tree served with some retro tunes.",
+      "quote": "Perfect brew for your musical evenings",
+      "insight": "55,210 saves • 45 songs • about 3 hr"
     },
     {
       "id": 8,
       "image": "albumimages/nowtrending.jpg",
-      "name": "Every track you're listening/should be listening to joy"
+      "name": "Every track you're listening/should be listening to joy",
+      "quote": "Fresh vibes trending across the country",
+      "insight": "1,12,008 saves • 50 songs • about 3 hr 50 min"
     }
   ]
 }
