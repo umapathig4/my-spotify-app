@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import audio from "../../CustomHooks/audio";
 import useAudio from "../../CustomHooks/audio";
-import song1 from "../../assets/songs/Tum Hi Ho - Aashiqui 2 128 Kbps.mp3";
 import { useAudioContext } from "../../Contexts/AudioContext";
 
 const AlbumTable = () => {

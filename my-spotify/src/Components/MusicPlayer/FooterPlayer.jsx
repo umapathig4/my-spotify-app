@@ -9,7 +9,7 @@ import {
   CirclePlay,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import song1 from "../../assets/songs/Tum Hi Ho - Aashiqui 2 128 Kbps.mp3";
+
 import audio from "../../CustomHooks/audio";
 import useAudio from "../../CustomHooks/audio";
 import { useAudioContext } from "../../Contexts/AudioContext";
