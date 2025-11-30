@@ -1,0 +1,250 @@
+{
+  "todayBiggestHits": [
+    {
+      "id": 1,
+      "img": "albumimages/nowtrending.jpg",
+      "para": "Every track you're listening/should be listening to joy"
+    },
+    {
+      "id": 2,
+      "img": "/albumimages/trendiningvalen.jpeg",
+      "para": "India's ultimate love playlist - Bhediya"
+    },
+    {
+      "id": 3,
+      "img": "/albumimages/trendingmalu.jpeg",
+      "para": "Every song that's Trending NOW from Malayalam! Cover"
+    },
+    {
+      "id": 4,
+      "img": "/albumimages/bollydancemusic.jpeg",
+      "para": "Party-ready, the biggest Bollywood dance trancs"
+    },
+    {
+      "id": 5,
+      "img": "/albumimages/bestofindia.jpeg",
+      "para": "Best of the Indian India scene. Cover-Kushagra"
+    }
+  ],
+  "popularradio": [
+    {
+      "id": 1,
+      "img": "albumimages/kumarsanu.jpeg",
+      "para": "With Alka Yagnik, Jatin-Lalit, Vinod Rathod and more"
+    },
+    {
+      "id": 2,
+      "img": "/albumimages/kishorekumar.jpeg",
+      "para": "With Mukesh, Hemant Kumar, Tabassum and more"
+    },
+    {
+      "id": 3,
+      "img": "/albumimages/arijithsingh.jpeg",
+      "para": "With Sachin-Jigar, Atif Aslam, Shaarib Toshi and more"
+    },
+    {
+      "id": 4,
+      "img": "/albumimages/sheriyagoshal.jpeg",
+      "para": "With A.R.Rahman, Atif Aslam, Ajay-Atul and more"
+    }
+  ],
+  "throwback": [
+    {
+      "id": 1,
+      "img": "albumimages/oldisgold.jpeg",
+      "para": "Soulful Hindi Songs for your nostalgic journey"
+    },
+    {
+      "id": 2,
+      "img": "/albumimages/hindi10s.jpeg",
+      "para": "Relive the biggest tracks of the Decade"
+    },
+    {
+      "id": 3,
+      "img": "/albumimages/chaiandclassice.jpeg",
+      "para": "A cup of tree served with some retro tunes."
+    },
+    {
+      "id": 4,
+      "img": "/albumimages/10stelugu.jpeg",
+      "para": "Best of 2010s from Tollywood Cover - Arjun Reddy"
+    },
+    {
+      "id": 4,
+      "img": "/albumimages/chilltamil.jpeg",
+      "para": "Soothing Hits from 00s Cover : Trisha"
+    }
+  ],
+  "tamilVideoloopSongs": [
+    {
+      "id": 1,
+      "song": "/videoloopsongs/petta.mp4",
+      "album": "/albumimages/petta.jpg",
+      "name": "Ilamai Thirumbudhe From Petta",
+      "description": "Kadhal Paruvam Mix by Anirudh Ravichander"
+    },
+    {
+      "id": 2,
+      "song": "/videoloopsongs/sarkar.mp4",
+      "album": "/albumimages/sarkar.jpg",
+      "name": "OMG Ponnu Song by Jonita Gandhi and Sid Sriram",
+      "description": "Sarkar - OMG Ponnu Song Video (Tamil) | Thalapathy Vijay, Keerthy Suresh | @ARRahman "
+    }
+  ],
+  "teluguVideoloopSongs": [
+    {
+      "id": 1,
+      "song": "/videoloopsongs/devara.mp4",
+      "album": "/albumimages/devara.jpg",
+      "name": "Chuttamalle - Devara | NTR | Janhvi Kapoor",
+      "description": "Chuttamalle Song (Lyrics) | Devara | Jr.NTR | Janhvi Kapoor | Anirudh | Shilpa Rao"
+    },
+    {
+      "id": 2,
+      "song": "/videoloopsongs/pushpa2.mp4",
+      "album": "/albumimages/pushpa2.jpg",
+      "name": "Pushpa 2: The Rule",
+      "description": "Song by Deepak Blue and Nakash Aziz"
+    }
+  ],
+  "hindiVideoloopSongs": [
+    {
+      "id": 1,
+      "song": "/videoloopsongs/hindi1.mp4",
+      "album": "/albumimages/hindi1.jpg",
+      "name": "Kesariya from Brahmāstra",
+      "description": "Song by Arijit Singh"
+    },
+    {
+      "id": 2,
+      "song": "/videoloopsongs/hindi2.mp4",
+      "album": "/albumimages/hindi2.jpg",
+      "name": "Chaleya from Jawan",
+      "description": "Song by Arijit Singh and Shilpa Rao"
+    }
+  ],
+  "recentPlayed": [
+    {
+      "id": 1,
+      "image": "/albumimages/hindi10s.jpeg",
+      "name": "Relive the biggest tracks of the Decade",
+      "quote": "The golden chartbusters of 2010s are back!",
+      "insight": "1,25,412 saves • 52 songs • about 4 hr 15 min",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 2,
+      "image": "/albumimages/chilltamil.jpeg",
+      "name": "Soothing Hits from 00s Cover : Trisha",
+      "quote": "Ever loveable 'jaanu' is here",
+      "insight": "40,085 saves • 49 songs • about 4 hr",
+     "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 3,
+      "image": "/albumimages/bestofindia.jpeg",
+      "name": "Best of the Indian India scene. Cover-Kushagra",
+      "quote": "Finest india voices shaping the nation’s vibe",
+      "insight": "98,563 saves • 60 songs • about 5 hr 20 min",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 4,
+      "image": "/albumimages/trendiningvalen.jpeg",
+      "name": "India's ultimate love playlist - Bhediya",
+      "quote": "Every heartbeat in one playlist",
+      "insight": "76,421 saves • 48 songs • about 3 hr 40 min",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 5,
+      "image": "/albumimages/chaiandclassice.jpeg",
+      "name": "A cup of tree served with some retro tunes.",
+      "quote": "Perfect brew for your musical evenings",
+      "insight": "55,210 saves • 45 songs • about 3 hr",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 6,
+      "image": "albumimages/nowtrending.jpg",
+      "name": "Every track you're listening/should be listening to joy",
+      "quote": "Fresh vibes trending across the country",
+      "insight": "1,12,008 saves • 50 songs • about 3 hr 50 min",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 7,
+      "image": "albumimages/oldisgold.jpeg",
+      "name": "Soulful Hindi Songs for your nostalgic journey",
+      "quote": "Timeless gems to warm your heart",
+      "insight": "89,765 saves • 58 songs • about 5 hr 5 min",
+      "song": "/songs/Tumhiho.mp3"
+    },
+    {
+      "id": 8,
+      "image": "/albumimages/trendingmalu.jpeg",
+      "name": "Every song that's Trending NOW from Malayalam! Cover",
+      "quote": "Kerala’s trending beats in one place",
+      "insight": "67,342 saves • 47 songs • about 3 hr 35 min",
+      "song": "/songs/Tumhiho.mp3"
+    }
+  ],
+  "recentPlayedMusic": [
+    {
+      "id": 1,
+      "image": "/albumimages/bestofindia.jpeg",
+      "name": "Best of the Indian India scene. Cover-Kushagra",
+      "quote": "Finest india voices shaping the nation’s vibe",
+      "insight": "98,563 saves • 60 songs • about 5 hr 20 min"
+    },
+    {
+      "id": 2,
+      "image": "/albumimages/trendiningvalen.jpeg",
+      "name": "India's ultimate love playlist - Bhediya",
+      "quote": "Every heartbeat in one playlist",
+      "insight": "76,421 saves • 48 songs • about 3 hr 40 min"
+    },
+    {
+      "id": 3,
+      "image": "/albumimages/hindi10s.jpeg",
+      "name": "Relive the biggest tracks of the Decade",
+      "quote": "The golden chartbusters of 2010s are back!",
+      "insight": "1,25,412 saves • 52 songs • about 4 hr 15 min"
+    },
+    {
+      "id": 4,
+      "image": "/albumimages/chilltamil.jpeg",
+      "name": "Soothing Hits from 00s Cover : Trisha",
+      "quote": "Ever loveable 'jaanu' is here",
+      "insight": "40,085 saves • 49 songs • about 4 hr"
+    },
+    {
+      "id": 5,
+      "image": "albumimages/oldisgold.jpeg",
+      "name": "Soulful Hindi Songs for your nostalgic journey",
+      "quote": "Timeless gems to warm your heart",
+      "insight": "89,765 saves • 58 songs • about 5 hr 5 min"
+    },
+    {
+      "id": 6,
+      "image": "/albumimages/trendingmalu.jpeg",
+      "name": "Every song that's Trending NOW from Malayalam! Cover",
+      "quote": "Kerala’s trending beats in one place",
+      "insight": "67,342 saves • 47 songs • about 3 hr 35 min"
+    },
+    {
+      "id": 7,
+      "image": "/albumimages/chaiandclassice.jpeg",
+      "name": "A cup of tree served with some retro tunes.",
+      "quote": "Perfect brew for your musical evenings",
+      "insight": "55,210 saves • 45 songs • about 3 hr"
+    },
+    {
+      "id": 8,
+      "image": "albumimages/nowtrending.jpg",
+      "name": "Every track you're listening/should be listening to joy",
+      "quote": "Fresh vibes trending across the country",
+      "insight": "1,12,008 saves • 50 songs • about 3 hr 50 min"
+    }
+  ]
+}
