@@ -31,8 +31,8 @@ const Sidebar = () => {
   return (
     <div>
       {isBigSidebarOpen && (
-        <div className="h-screen group/bar w-[394px] bg-[#121212] z-[90] fixed left-0  ">
-          <div className="flex items-center justify-between mt-[73px] px-9">
+        <div className="h-[calc(100vh-149px)] group/bar w-[394px] bg-[#121212] z-[90] fixed left-0  ">
+          <div className="flex items-center justify-between px-9">
             <div className="flex items-center gap-x-3">
               <div className="relative group/collapseSidebar">
                 <div
@@ -163,12 +163,12 @@ whitespace-nowrap pointer-events-none"
 
       {/* collapsed */}
       {!isBigSidebarOpen && (
-        <div className="h-screen  w-[82px] bg-[#121212] z-[90] fixed left-0">
+        <div className="h-[calc(100vh-149px)] mt-[5px] w-[82px] bg-[#121212] z-[90] fixed left-0">
           <div>
             <div className="px-[28px] py-10px">
               <div
                 onClick={() => setBigSidebarOpen(true)}
-                className="relative group/collapseSidebar mt-[73px]"
+                className="relative group/collapseSidebar"
               >
                 <div>
                   <PanelRightOpen className="text-[#a9a9a9] hover:text-[#f1f1f1] cursor-pointer" />

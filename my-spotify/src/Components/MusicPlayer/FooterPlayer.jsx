@@ -9,7 +9,7 @@ import {
   CirclePlay,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import song1 from "../../assets/songs/Tum Hi Ho - Aashiqui 2 128 Kbps.mp3";
+
 import audio from "../../CustomHooks/audio";
 import useAudio from "../../CustomHooks/audio";
 import { useAudioContext } from "../../Contexts/AudioContext";
@@ -20,8 +20,25 @@ const FooterPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   // const audioRef = useRef(null);
 
-  const { audioRef, isSongError, togglePlayPause, isPlaying } =
-    useAudioContext();
+  const {
+    audioRef,
+    isSongError,
+    togglePlayPause,
+    isPlaying,
+    currentSong,
+    setIsPlaying,
+  } = useAudioContext();
+
+  useEffect(() => {
+    if (currentSong) {
+      const audioTime = audioRef.current;
+
+      if (duration === currentTime) {
+        audioTime.pause();
+        setIsPlaying(false);
+      }
+    }
+  }, [duration, currentTime]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -64,26 +81,56 @@ const FooterPlayer = () => {
         <div className="w-[200px] mx-[auto] mt-[16px] mb-[7px] text-center">
           <div className="flex items-center justify-between gap-x-2 text-white">
             <div className="flex items-center gap-x-5">
-              <Shuffle className="h-[18px]" />
-              <SkipBack className="h-[18px]" />
+              <Shuffle
+                className={`${
+                  currentSong ? "text-white" : "text-gray-500"
+                } h-[18px]`}
+              />
+              <SkipBack
+                className={`${
+                  currentSong ? "text-white" : "text-gray-500"
+                } h-[18px]`}
+              />
             </div>
             <div onClick={togglePlayPause}>
               {isPlaying ? (
-                <CirclePause className="h-[30px] w-[30px]" />
+                <CirclePause
+                  className={`${
+                    currentSong ? "text-white" : "text-gray-500"
+                  } h-[30px] w-[30px]`}
+                />
               ) : (
-                <CirclePlay className="h-[30px] w-[30px]" />
+                <CirclePlay
+                  className={`${
+                    currentSong ? "text-white" : "text-gray-500"
+                  } h-[30px] w-[30px]`}
+                />
               )}
             </div>
             <div className="flex items-center gap-x-5">
-              <SkipForward className="h-[18px]" />
-              <Repeat className="h-[18px]" />
+              <SkipForward
+                className={`${
+                  currentSong ? "text-white" : "text-gray-500"
+                } h-[18px]`}
+              />
+              <Repeat
+                className={`${
+                  currentSong ? "text-white" : "text-gray-500"
+                } h-[18px]`}
+              />
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-x-[10px] align-middle">
           <div className="text-white">
-            <h6 className="text-[10px]">{formatTime(currentTime)}</h6>
+            <h6
+              className={`${
+                currentSong ? "text-white" : "text-gray-500"
+              } text-[10px]`}
+            >
+              {formatTime(currentTime)}
+            </h6>
           </div>
 
           <audio ref={audioRef} preload="metadata" />
@@ -115,10 +162,16 @@ const FooterPlayer = () => {
             onChange={handleProgressChange}
           />
           <div className="text-white">
-            <h6 className="text-[10px]">{formatTime(duration)}</h6>
+            <h6
+              className={`${
+                currentSong ? "text-white" : "text-gray-500"
+              } text-[10px]`}
+            >
+              {formatTime(duration)}
+            </h6>
           </div>
         </div>
-        {isSongError && <p className="text-red-500">{isSongError}</p>}
+        {isSongError ? <p className="text-red-500">{isSongError}</p> : null}
       </div>
     </div>
   );

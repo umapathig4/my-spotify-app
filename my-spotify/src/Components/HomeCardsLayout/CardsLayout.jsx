@@ -57,6 +57,7 @@ const CardsLayout = ({ demoArrey, error, loading }) => {
             </div>
           </div>
 
+
           {currentCardIndex > 0 && (
             <div className="absolute top-0 start-0">
               <div className="float-start sticky start-0">
@@ -69,6 +70,7 @@ const CardsLayout = ({ demoArrey, error, loading }) => {
               </div>
             </div>
           )}
+
 
           {currentCardIndex < demoArrey.length - 3 && (
             <div className="absolute top-0 end-0">

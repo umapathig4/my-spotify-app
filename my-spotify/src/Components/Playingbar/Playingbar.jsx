@@ -9,16 +9,23 @@ import {
 } from "lucide-react";
 import { useBarContext } from "../../Contexts/BarContext";
 import { useAudioContext } from "../../Contexts/AudioContext";
+import { useEffect } from "react";
 
 const Playingbar = () => {
-  const { isPlayingbarOpen } = useBarContext();
+  const { isPlayingbarOpen, setPlayingbarOpen } = useBarContext();
 
-  const { currentImg } = useAudioContext();
+  const { currentImg, currentSong } = useAudioContext();
+
+  useEffect(() => {
+    if (currentSong) {
+      setPlayingbarOpen(true);
+    }
+  }, [currentSong]);
 
   return (
     <div>
       {isPlayingbarOpen && (
-        <div className="h-screen w-[365px] right-0 bg-[#121212] rounded-[10px] mt-[65px] overflow-scroll custom-scrollbar1">
+        <div className="h-screen w-[365px] right-0 bg-[#121212] rounded-[10px] overflow-scroll custom-scrollbar1">
           <div className="relative group/playingBar w-full h-[530px]">
             <img
               className="w-full h-full object-cover rounded"

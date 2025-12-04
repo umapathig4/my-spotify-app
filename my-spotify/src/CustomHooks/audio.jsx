@@ -8,10 +8,8 @@ const useAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    if (!audioRef.current) {
-      setSongError("no song");
-      return;
-    }
+    if (!audioRef.current || !currentSong) return;
+
 
     if (audioRef.current) {
       try {
@@ -21,6 +19,7 @@ const useAudio = () => {
           .play()
           .then(() => {
             setIsPlaying(true); // ✅ mark playing once play resolves
+            setSongError("");
           })
           .catch(() => {
             setSongError("Failed to play");
@@ -32,7 +31,7 @@ const useAudio = () => {
   }, [currentSong]);
 
   const togglePlayPause = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || !currentSong) return;
 
     if (isPlaying) {
       audioRef.current.pause();
@@ -52,6 +51,7 @@ const useAudio = () => {
     isSongError,
     isPlaying,
     togglePlayPause,
+    setIsPlaying,
   };
 };
 

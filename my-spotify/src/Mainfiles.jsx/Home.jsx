@@ -24,15 +24,15 @@ export default function SpotifyLayout() {
 
   return (
     <div
-      className={`h-screen w-[100%] mt-[65px] rounded-[10px] ${
+      className={` w-[100%] rounded-[10px] ${
         isBigSidebarOpen ? "ms-[395px]" : "ms-[89px]"
       } ${isPlayingbarOpen ? "me-[10px]" : "me-[0px]"}`}
       style={finalStyle}
     >
-      <div className="mt-[10px] px-12 py-1">
+      <div className="px-12 py-5 fixed top-[65px] w-full z-10">
         <div className="flex items-center gap-3">
           <button
-            className={` border-2 border-[#3a3a3a] px-4 py-2 rounded-[22px]
+            className={`  px-4 py-2 rounded-[22px]
              ${
                isActiveTab === "all"
                  ? "bg-white text-black"
@@ -44,7 +44,7 @@ export default function SpotifyLayout() {
           </button>
 
           <button
-            className={` border-2 border-[#3a3a3a] px-4 py-2 rounded-[22px]
+            className={`  px-4 py-2 rounded-[22px]
              ${
                isActiveTab === "music"
                  ? "bg-white text-black"
@@ -56,7 +56,7 @@ export default function SpotifyLayout() {
           </button>
 
           <button
-            className={` border-2 border-[#3a3a3a] px-5 py-2 rounded-[22px]
+            className={` px-5 py-2 rounded-[22px]
              ${
                isActiveTab === "podcasts"
                  ? "bg-white text-black"
@@ -69,7 +69,7 @@ export default function SpotifyLayout() {
         </div>
       </div>
 
-      <div className="mt-[23px]">
+      <div className="mt-[73px] w-full">
         {isActiveTab === "all" && (
           <div className="text-white">
             <All isPlayingbarOpen={isPlayingbarOpen} />

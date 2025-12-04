@@ -8,7 +8,7 @@ const PageLayout = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-1 overflow-hidden">
+      <div className="h-[calc(100vh-149px)] mt-[65px] mb-[84px] flex flex-1 overflow-hidden">
         <Sidebar />
         <Outlet />
         <Playingbar />
