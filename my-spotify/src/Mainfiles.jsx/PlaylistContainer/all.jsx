@@ -1,8 +1,10 @@
 import RecentPlayed from "../../Components/HomeCardsLayout/RecentPlayed";
 import { useData } from "../../Contexts/DataContext";
 import CardsLayout from "../../Components/HomeCardsLayout/CardsLayout";
+import useAudio from "../../CustomHooks/audio";
+import { useEffect } from "react";
 
-const All = ({ isPlayingbarOpen }) => {
+const All = ({ isPlayingbarOpen, setPlayingbarOpen }) => {
   const {
     isBiggestHits,
     isPopularRadio,
@@ -18,11 +20,19 @@ const All = ({ isPlayingbarOpen }) => {
     loadingReacentPlayed,
   } = useData();
 
+  const { currentSong } = useAudio();
+
+  useEffect(() => {
+    if (currentSong) {
+      setPlayingbarOpen(true);
+    }
+  }, [currentSong]);
+
   return (
     <div
       className={`${
-        isPlayingbarOpen ? "max-w-[740px]" : "max-w-[1100px]"
-      } w-[full] h-screen overflow-scroll custom-scrollbar1`}
+        isPlayingbarOpen ? "max-w-[760px]" : "max-w-[1100px]"
+      } w-[100%] h-[calc(100vh-220px)] overflow-scroll custom-scrollbar1`}
     >
       <div className="w-full ps-12">
         <RecentPlayed

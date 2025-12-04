@@ -32,7 +32,7 @@ const Music = ({ isPlayingbarOpen }) => {
     <div
       className={`${
         isPlayingbarOpen ? "max-w-[740px]" : "max-w-[1100px]"
-      } w-[full] h-screen overflow-scroll custom-scrollbar1`}
+      } w-[full] h-[calc(100vh-149px)] overflow-scroll custom-scrollbar1`}
     >
       <div className="w-full ps-12">
         <RecentPlayed

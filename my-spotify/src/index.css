@@ -17,6 +17,8 @@ body {
   background-color: black;
  
 }
+
+
 /* global.css or index.css */
 .custom-scrollbar::-webkit-scrollbar {
   height: 0px;

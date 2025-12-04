@@ -40,7 +40,7 @@ const Playlist = () => {
 
   return (
     <div
-      className={`h-screen w-[100%] mt-[65px] rounded-[10px] ${
+      className={`h-[calc(100vh-149px)] w-[100%] rounded-[10px] ${
         isBigSidebarOpen ? "ms-[395px]" : "ms-[89px]"
       } ${
         isPlayingbarOpen ? "me-[10px]" : "me-[0px]"
