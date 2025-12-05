@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import audio from "../../CustomHooks/audio";
 import useAudio from "../../CustomHooks/audio";
 import { useAudioContext } from "../../Contexts/AudioContext";
+import { useEffect } from "react";
 
 const AlbumTable = () => {
   const [colWidths, setColWidths] = useState({
@@ -20,7 +21,12 @@ const AlbumTable = () => {
     currentSong,
     isPlaying,
     togglePlayPause,
+    setPlaylist,
   } = useAudioContext();
+
+  useEffect(() => {
+    setPlaylist(assetDetails);
+  }, []);
 
   const location = useLocation();
 
@@ -55,7 +61,7 @@ const AlbumTable = () => {
       album: "54",
       dateadded: "Developer",
       duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
+      song: "/songs/Rekka-Rekka.mp3",
     },
     {
       id: 4,
@@ -65,7 +71,7 @@ const AlbumTable = () => {
       album: "54",
       dateadded: "Developer",
       duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
+      song: "/songs/Oorum-Blood.mp3",
     },
     {
       id: 5,

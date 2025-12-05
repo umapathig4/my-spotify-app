@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import AlbumTable from "../Components/Table/AlbumTable";
 import { useBarContext } from "../Contexts/BarContext";
-import useAudio from "../CustomHooks/audio";
+
 
 const Playlist = () => {
   const [isBgColor, setBgColor] = useState("");
@@ -24,7 +24,7 @@ const Playlist = () => {
   const { name, image, quote, insight, song } = location.state || {};
   const imgBgRef = useRef(null);
  // ✅ useAudio hook here
-  const { audioRef, setCurrentSong, isSongError } = useAudio();
+  
 
  
   useEffect(() => {

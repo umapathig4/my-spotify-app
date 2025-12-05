@@ -27,6 +27,11 @@ const FooterPlayer = () => {
     isPlaying,
     currentSong,
     setIsPlaying,
+    handleNextSong,
+    playlist,
+    handlePrevSong,
+    shufflePlay,
+    repeatSong,
   } = useAudioContext();
 
   useEffect(() => {
@@ -82,11 +87,13 @@ const FooterPlayer = () => {
           <div className="flex items-center justify-between gap-x-2 text-white">
             <div className="flex items-center gap-x-5">
               <Shuffle
+                onClick={() => shufflePlay(playlist)}
                 className={`${
                   currentSong ? "text-white" : "text-gray-500"
                 } h-[18px]`}
               />
               <SkipBack
+                onClick={() => handlePrevSong(playlist)}
                 className={`${
                   currentSong ? "text-white" : "text-gray-500"
                 } h-[18px]`}
@@ -109,11 +116,13 @@ const FooterPlayer = () => {
             </div>
             <div className="flex items-center gap-x-5">
               <SkipForward
+                onClick={() => handleNextSong(playlist)}
                 className={`${
                   currentSong ? "text-white" : "text-gray-500"
                 } h-[18px]`}
               />
               <Repeat
+                onClick={repeatSong}
                 className={`${
                   currentSong ? "text-white" : "text-gray-500"
                 } h-[18px]`}
