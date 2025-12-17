@@ -8,6 +8,8 @@ const useAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [shuffledList, setShuffledList] = useState([]);
   const [isShuffled, setIsShuffled] = useState(false);
+  const [nextSong, setNextSong] = useState(null);
+  const [nextImg, setNextImg] = useState(null);
 
   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
@@ -56,6 +58,8 @@ const useAudio = () => {
     const nextItem = activeList[nextIndex];
     setCurrentSong(nextItem.song);
     setCurrentImg(nextItem.img);
+    setNextSong(activeList[(nextIndex + 1) % activeList.length].song);
+    setNextImg(activeList[(nextIndex + 1) % activeList.length].img);
   };
 
   const handlePrevSong = (playlist) => {
@@ -112,6 +116,10 @@ const useAudio = () => {
     handlePrevSong,
     shufflePlay,
     repeatSong,
+    nextSong,
+    nextImg,
+    setNextSong,
+    setNextImg,
   };
 };
 

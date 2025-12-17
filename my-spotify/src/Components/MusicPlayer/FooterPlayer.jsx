@@ -34,16 +34,31 @@ const FooterPlayer = () => {
     repeatSong,
   } = useAudioContext();
 
-  useEffect(() => {
-    if (currentSong) {
-      const audioTime = audioRef.current;
+ useEffect(() => {
+  const audio = audioRef.current;
+  if (!audio || !currentSong || !playlist?.length) return;
 
-      if (duration === currentTime) {
-        audioTime.pause();
-        setIsPlaying(false);
-      }
+  const lastSong = playlist[playlist.length - 1];
+
+  // Check if current is last song + audio has ended
+  const handleTimeUpdate = () => {
+    if (
+      currentSong === lastSong.song && 
+      audio.currentTime >= audio.duration - 0.1   // small buffer for safety
+    ) {
+      audio.pause();
+      setIsPlaying(false);
     }
-  }, [duration, currentTime]);
+  };
+
+  audio.addEventListener("timeupdate", handleTimeUpdate);
+
+  return () => {
+    audio.removeEventListener("timeupdate", handleTimeUpdate);
+  };
+}, [currentSong, playlist]);
+
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -64,6 +79,20 @@ const FooterPlayer = () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, []);
+
+
+    useEffect(() => {
+  const audio = audioRef.current;
+  if (!audio || !currentSong) return;
+
+  audio.onended = () => {
+    handleNextSong(playlist);  // 👉 Auto next song
+  };
+
+  return () => {
+    audio.onended = null;
+  };
+}, [currentSong, playlist]);
 
   const handleProgressChange = (e) => {
     const audio = audioRef.current;

@@ -9,14 +9,16 @@ import {
 } from "lucide-react";
 import { useBarContext } from "../../Contexts/BarContext";
 import { useAudioContext } from "../../Contexts/AudioContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Playingbar = () => {
   const { isPlayingbarOpen, setPlayingbarOpen } = useBarContext();
 
-  const { currentImg, currentSong } = useAudioContext();
+  const { currentImg, currentSong, nextSong, nextImg } = useAudioContext();
 
   useEffect(() => {
+    if (!currentSong) return;
+
     if (currentSong) {
       setPlayingbarOpen(true);
     }
@@ -153,10 +155,10 @@ const Playingbar = () => {
               <div className="flex mt-7 items-center justify-between">
                 <div className="flex items-center gap-x-3">
                   <div>
-                    <img src={img1} className="h-[50px]" />
+                    <img src={nextImg} className="h-[50px]" />
                   </div>
                   <div>
-                    <h5 className="text-white">Sunn Raha Hai (Male Version)</h5>
+                    <h5 className="text-white">{nextSong}</h5>
                     <h6 className="text-[#a9a9a9]">Ankit Tiwari</h6>
                   </div>
                 </div>

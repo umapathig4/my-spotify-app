@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { CircleArrowLeft, CircleArrowRight, Play } from "lucide-react";
 import { MusicLoading } from "../Loading/MusicLoading";
+import { useBarContext } from "../../Contexts/BarContext";
 
 const CardsLayout = ({ demoArrey, error, loading }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const cardContainerRef = useRef(null);
+  const { isPlayingbarOpen } = useBarContext();
 
   const gotoCard = (card) => {
     const cardsTotal = demoArrey.length;
@@ -57,22 +59,33 @@ const CardsLayout = ({ demoArrey, error, loading }) => {
             </div>
           </div>
 
+          {isPlayingbarOpen && currentCardIndex > 0 && (
+            <div className="absolute top-0 left-0 h-full group/cardhover">
+              {/* Gradient overlay */}
+              <div className="absolute top-0 left-0 h-[240px] w-[70px] gradient-fade-left pointer-events-none" />
 
-          {currentCardIndex > 0 && (
-            <div className="absolute top-0 start-0">
-              <div className="float-start sticky start-0">
-                <div className="relative h-[240px] w-[70px] gradient-fade-left"></div>
-
-                <CircleArrowLeft
-                  className="absolute top-[50%] ms-[20%] text-red text-gray-200 h-[30px] w-[30px] opacity-0 group-hover/cardhover:opacity-100 transition-opacity duration-50"
-                  onClick={() => gotoCard(currentCardIndex - 1)}
-                />
-              </div>
+              {/* Arrow */}
+              <CircleArrowLeft
+                className="
+        absolute
+        top-1/2
+        left-3
+        -translate-y-1/2
+        h-[30px]
+        w-[30px]
+        text-gray-200
+        opacity-0
+        group-hover/cardhover:opacity-100
+        transition-opacity
+        duration-200
+        cursor-pointer
+      "
+                onClick={() => gotoCard(currentCardIndex - 1)}
+              />
             </div>
           )}
 
-
-          {currentCardIndex < demoArrey.length - 3 && (
+          {isPlayingbarOpen && currentCardIndex < demoArrey.length - 3 && (
             <div className="absolute top-0 end-0">
               <div className="float-end sticky end-0">
                 <div className="relative h-[240px] w-[70px] gradient-fade-right"></div>
