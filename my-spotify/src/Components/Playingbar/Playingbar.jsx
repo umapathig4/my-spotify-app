@@ -6,27 +6,65 @@ import {
   PanelLeftOpen,
   CirclePlus,
   ClipboardPlus,
+  Play,
 } from "lucide-react";
 import { useBarContext } from "../../Contexts/BarContext";
 import { useAudioContext } from "../../Contexts/AudioContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useQueueContext } from "../../Contexts/QueueContext";
+import Queue from "../QueueLayout/Queue";
+import { usePlayingViewContext } from "../../Contexts/PlayingViewContext";
 
 const Playingbar = () => {
-  const { isPlayingbarOpen, setPlayingbarOpen } = useBarContext();
+  const { isPlayingbarOpen, setPlayingbarOpen, setBigSidebarOpen } =
+    useBarContext();
+  const { isQueueOpen, setIsQueueOpen } = useQueueContext();
+  const { setIsPlayingView } = usePlayingViewContext();
 
-  const { currentImg, currentSong } = useAudioContext();
+  const {
+    currentImg,
+    currentSong,
+    setCurrentSong,
+    setCurrentImg,
+    setNextSong,
+    setNextImg,
+    nextSong,
+    nextImg,
+    playlist,
+  } = useAudioContext();
 
   useEffect(() => {
+    if (!currentSong) return;
+
     if (currentSong) {
       setPlayingbarOpen(true);
     }
   }, [currentSong]);
 
+  const playNextSong = () => {
+    setCurrentSong(nextSong);
+    setCurrentImg(nextImg);
+
+    const currentIndexItem = playlist.findIndex(
+      (item) => item.song === nextSong
+    );
+    const followingIndex = (currentIndexItem + 1) % playlist.length;
+    const followingItem = playlist[followingIndex];
+    setNextSong(followingItem.song);
+    setNextImg(followingItem.img);
+  };
+
+  const handlePlayingView = () => {
+    setIsPlayingView(true);
+    setPlayingbarOpen(false);
+    setBigSidebarOpen(false);
+  };
+
   return (
     <div>
-      {isPlayingbarOpen && (
+      {isPlayingbarOpen && !isQueueOpen && (
         <div className="h-screen w-[365px] right-0 bg-[#121212] rounded-[10px] overflow-scroll custom-scrollbar1">
-          <div className="relative group/playingBar w-full h-[530px]">
+          <div className="relative group/playingBar z-20 w-full h-[530px]">
             <img
               className="w-full h-full object-cover rounded"
               src={currentImg}
@@ -45,7 +83,10 @@ const Playingbar = () => {
                 </div>
                 <div className="flex items-center gap-x-6">
                   <Ellipsis className="hidden group-hover/playingBar:inline-block text-[#a9a9a9] hover:text-[#f1f1f1] cursor-pointer h-[21px]" />
-                  <Maximize2 className="hidden group-hover/playingBar:inline-block text-[#a9a9a9] hover:text-[#f1f1f1] cursor-pointer h-[19px]" />
+                  <Maximize2
+                    className="hidden group-hover/playingBar:inline-block text-[#a9a9a9] hover:text-[#f1f1f1] cursor-pointer h-[19px]"
+                    onClick={handlePlayingView}
+                  />
                 </div>
               </div>
             </div>
@@ -103,7 +144,9 @@ const Playingbar = () => {
             <div className="h-[226px] px-5 py-5 rounded-[12px] bg-[#1F1F1F] w-full mt-[10px]">
               <div className="flex items-center justify-between">
                 <h2 className="text-white font-bold">Credits</h2>
-                <h2 className="text-[#a9a9a9]">Show all</h2>
+                <h2 className="text-[#a9a9a9] hover:text-white cursor-pointer hover:underline">
+                  Show all
+                </h2>
               </div>
 
               <div className="flex mt-8 items-center justify-between">
@@ -147,25 +190,42 @@ const Playingbar = () => {
             <div className="h-[126px] px-5 py-5 rounded-[12px] bg-[#1F1F1F] w-full mt-[10px]">
               <div className="flex items-center justify-between">
                 <h2 className="text-white font-bold">Next in queue</h2>
-                <h2 className="text-[#a9a9a9]">Open queue</h2>
+                <h2
+                  className="text-[#a9a9a9] hover:text-white cursor-pointer hover:underline"
+                  onClick={() => setIsQueueOpen(true)}
+                >
+                  Open queue
+                </h2>
               </div>
 
-              <div className="flex mt-7 items-center justify-between">
-                <div className="flex items-center gap-x-3">
-                  <div>
-                    <img src={img1} className="h-[50px]" />
+              <div className="flex w-full mt-7 pe-3 group/smplayicon items-center justify-between hover:bg-[var(--color-lightgrey)] rounded-b-sm">
+                <div
+                  onClick={playNextSong}
+                  className="flex w-full items-center gap-x-3"
+                >
+                  <div className="relative">
+                    <img
+                      alt="next song img"
+                      src={nextImg}
+                      className="h-[50px] rounded group-hover/smplayicon:opacity-40"
+                    />
+                    <Play className="absolute hidden group-hover/smplayicon:inline-block top-5 left-5 text-white h-[20px] cursor-pointer" />
                   </div>
                   <div>
-                    <h5 className="text-white">Sunn Raha Hai (Male Version)</h5>
+                    <h5 className="text-white">{nextSong}</h5>
                     <h6 className="text-[#a9a9a9]">Ankit Tiwari</h6>
                   </div>
                 </div>
-                <div></div>
+                <div>
+                  <Ellipsis className="text-[#a9a9a9] hover:text-white cursor-pointer h-[21px] hidden group-hover/smplayicon:inline-block" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {isQueueOpen && <Queue />}
     </div>
   );
 };

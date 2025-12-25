@@ -5,6 +5,7 @@ const BarContext = createContext();
 
 export const BarProvider = ({ children }) => {
   const [isBigSidebarOpen, setBigSidebarOpen] = useState(true);
+  const [isSmallSidebarOpen, setSmallSidebarOpen] = useState(false);
   const [isPlayingbarOpen, setPlayingbarOpen] = useState(false);
 
   const handlePlayingbarOpen = () => {
@@ -16,6 +17,8 @@ export const BarProvider = ({ children }) => {
       value={{
         isBigSidebarOpen,
         setBigSidebarOpen,
+        isSmallSidebarOpen,
+        setSmallSidebarOpen,
         isPlayingbarOpen,
         setPlayingbarOpen,
         handlePlayingbarOpen,

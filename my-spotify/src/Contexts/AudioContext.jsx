@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import useAudio from "../CustomHooks/audio";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AudioContext = createContext();
 
@@ -11,9 +11,8 @@ export const AudioProvider = ({ children }) => {
   const [playlist, setPlaylist] = useState([]);
 
   return (
-    <AudioContext.Provider value={{ ...audio, playlist, setPlaylist}}>
+    <AudioContext.Provider value={{ ...audio, playlist, setPlaylist }}>
       {children}
     </AudioContext.Provider>
   );
 };
- 

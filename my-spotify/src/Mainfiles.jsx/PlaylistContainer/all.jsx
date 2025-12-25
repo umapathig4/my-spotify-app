@@ -3,6 +3,7 @@ import { useData } from "../../Contexts/DataContext";
 import CardsLayout from "../../Components/HomeCardsLayout/CardsLayout";
 import useAudio from "../../CustomHooks/audio";
 import { useEffect } from "react";
+import { useQueueContext } from "../../Contexts/QueueContext";
 
 const All = ({ isPlayingbarOpen, setPlayingbarOpen }) => {
   const {
@@ -21,6 +22,7 @@ const All = ({ isPlayingbarOpen, setPlayingbarOpen }) => {
   } = useData();
 
   const { currentSong } = useAudio();
+  const { isQueueOpen } = useQueueContext();
 
   useEffect(() => {
     if (currentSong) {
@@ -31,7 +33,7 @@ const All = ({ isPlayingbarOpen, setPlayingbarOpen }) => {
   return (
     <div
       className={`${
-        isPlayingbarOpen ? "max-w-[760px]" : "max-w-[1100px]"
+        isPlayingbarOpen || isQueueOpen ? "max-w-[760px]" : "max-w-[1100px]"
       } w-[100%] h-[calc(100vh-220px)] overflow-scroll custom-scrollbar1`}
     >
       <div className="w-full ps-12">

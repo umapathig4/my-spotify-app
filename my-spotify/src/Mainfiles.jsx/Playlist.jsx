@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-
 import logo from "../assets/navbar/logo.png";
 import { useEffect, useRef, useState } from "react";
 import getDominantColor from "../CustomHooks/getDominantColor";
@@ -12,21 +11,20 @@ import {
 } from "lucide-react";
 import AlbumTable from "../Components/Table/AlbumTable";
 import { useBarContext } from "../Contexts/BarContext";
-
+import { useLyricsContext } from "../Contexts/LyricsContext";
+import { useActiveSongBgContext } from "../Contexts/ActiveSongBgContext";
 
 const Playlist = () => {
-  const [isBgColor, setBgColor] = useState("");
-
   const { isBigSidebarOpen, isPlayingbarOpen } = useBarContext();
 
   const location = useLocation();
 
   const { name, image, quote, insight, song } = location.state || {};
   const imgBgRef = useRef(null);
- // ✅ useAudio hook here
-  
+  // ✅ useAudio hook here
+  const { isBgColor, setBgColor } = useActiveSongBgContext();
+  const { isLiricOpen } = useLyricsContext();
 
- 
   useEffect(() => {
     const img = imgBgRef.current;
     if (!img) return;
@@ -35,8 +33,6 @@ const Playlist = () => {
       setBgColor(color);
     }
   }, [imgBgRef]);
-
-
 
   return (
     <div
@@ -129,8 +125,7 @@ const Playlist = () => {
           </div>
 
           <div className="py-5">
-          <AlbumTable />
-
+            <AlbumTable />
           </div>
         </div>
       </div>

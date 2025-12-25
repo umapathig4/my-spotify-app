@@ -5,7 +5,12 @@ import { useBarContext } from "../../Contexts/BarContext";
 const Sidebar = () => {
   const [isAddpfj, setAddpfj] = useState(false);
   const addCreatepfjRef = useRef(null);
-  const { isBigSidebarOpen, setBigSidebarOpen } = useBarContext();
+  const {
+    isBigSidebarOpen,
+    setBigSidebarOpen,
+    isSmallSidebarOpen,
+    setSmallSidebarOpen,
+  } = useBarContext();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -162,7 +167,7 @@ whitespace-nowrap pointer-events-none"
       )}
 
       {/* collapsed */}
-      {!isBigSidebarOpen && (
+      {isSmallSidebarOpen && (
         <div className="h-[calc(100vh-149px)] mt-[5px] w-[82px] bg-[#121212] z-[90] fixed left-0">
           <div>
             <div className="px-[28px] py-10px">

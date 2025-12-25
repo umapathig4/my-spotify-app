@@ -1,8 +1,5 @@
 import { Pause, Play } from "lucide-react";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import audio from "../../CustomHooks/audio";
-import useAudio from "../../CustomHooks/audio";
 import { useAudioContext } from "../../Contexts/AudioContext";
 import { useEffect } from "react";
 
@@ -15,27 +12,17 @@ const AlbumTable = () => {
     duration: 10,
   });
 
-  const {
-    setCurrentSong,
-    setCurrentImg,
-    currentSong,
-    isPlaying,
-    togglePlayPause,
-    setPlaylist,
-  } = useAudioContext();
+  const { currentSong, isPlaying, setPlaylist, handlePlayCurrentSong } =
+    useAudioContext();
 
   useEffect(() => {
     setPlaylist(assetDetails);
   }, []);
 
-  const location = useLocation();
-
-  const { image } = location.state || {};
-
   const assetDetails = [
     {
       id: 1,
-      img: image,
+      img: "/albumimages/Aashiqui.jpeg",
       title: "Jhon Deoooooooooooooooooooooooooo",
       subtitle: "fgrhgfhgrgf",
       album: "Rabbiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
@@ -55,7 +42,7 @@ const AlbumTable = () => {
     },
     {
       id: 3,
-      img: image,
+      img: "/albumimages/devara.jpg",
       title: "Jhon Deo",
       subtitle: "fgrhgfhgrgf",
       album: "54",
@@ -65,73 +52,13 @@ const AlbumTable = () => {
     },
     {
       id: 4,
-      img: image,
+      img: "/albumimages/hindi1.jpg",
       title: "Jhon Deo",
       subtitle: "fgrhgfhgrgf",
       album: "54",
       dateadded: "Developer",
       duration: "2.52",
       song: "/songs/Oorum-Blood.mp3",
-    },
-    {
-      id: 5,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
-    },
-    {
-      id: 6,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
-    },
-    {
-      id: 7,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
-    },
-    {
-      id: 8,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
-    },
-    {
-      id: 9,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
-    },
-    {
-      id: 10,
-      img: image,
-      title: "Jhon Deo",
-      subtitle: "fgrhgfhgrgf",
-      album: "54",
-      dateadded: "Developer",
-      duration: "2.52",
-      song: "/songs/Tumhiho.mp3",
     },
   ];
 
@@ -154,15 +81,6 @@ const AlbumTable = () => {
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
-  };
-
-  const handlePlayCurrentSong = (song, img) => {
-    if (currentSong === song) {
-      togglePlayPause(); // same song → toggle play/pause
-    } else {
-      setCurrentSong(song); // load new song
-      setCurrentImg(img);
-    }
   };
 
   return (
@@ -205,7 +123,7 @@ const AlbumTable = () => {
 
                 <span
                   className="hidden group-hover/tableHover:inline"
-                  onClick={() => handlePlayCurrentSong(asset.song, asset.img)}
+                  onClick={() => handlePlayCurrentSong(assetDetails, i)}
                 >
                   {currentSong === asset.song && isPlaying ? (
                     <Pause className="h-[15px] w-[15px] cursor-pointer" />
