@@ -10,11 +10,9 @@ export const AudioProvider = ({ children }) => {
   const audio = useAudio(); // only ONE instance lives here
   const [playlist, setPlaylist] = useState([]);
 
-
   return (
-    <AudioContext.Provider value={{ ...audio, playlist, setPlaylist}}>
+    <AudioContext.Provider value={{ ...audio, playlist, setPlaylist }}>
       {children}
     </AudioContext.Provider>
   );
 };
- 

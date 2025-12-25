@@ -2,11 +2,13 @@ import React, { useRef, useState } from "react";
 import { CircleArrowLeft, CircleArrowRight, Play } from "lucide-react";
 import { MusicLoading } from "../Loading/MusicLoading";
 import { useBarContext } from "../../Contexts/BarContext";
+import { useQueueContext } from "../../Contexts/QueueContext";
 
 const CardsLayout = ({ demoArrey, error, loading }) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const cardContainerRef = useRef(null);
   const { isPlayingbarOpen } = useBarContext();
+  const { isQueueOpen } = useQueueContext();
 
   const gotoCard = (card) => {
     const cardsTotal = demoArrey.length;
@@ -59,7 +61,7 @@ const CardsLayout = ({ demoArrey, error, loading }) => {
             </div>
           </div>
 
-          {isPlayingbarOpen && currentCardIndex > 0 && (
+          {(isPlayingbarOpen || isQueueOpen) && currentCardIndex > 0 && (
             <div className="absolute top-0 left-0 h-full group/cardhover">
               {/* Gradient overlay */}
               <div className="absolute top-0 left-0 h-[240px] w-[70px] gradient-fade-left pointer-events-none" />
@@ -85,18 +87,19 @@ const CardsLayout = ({ demoArrey, error, loading }) => {
             </div>
           )}
 
-          {isPlayingbarOpen && currentCardIndex < demoArrey.length - 3 && (
-            <div className="absolute top-0 end-0">
-              <div className="float-end sticky end-0">
-                <div className="relative h-[240px] w-[70px] gradient-fade-right"></div>
+          {(isPlayingbarOpen || isQueueOpen) &&
+            currentCardIndex < demoArrey.length - 3 && (
+              <div className="absolute top-0 end-0">
+                <div className="float-end sticky end-0">
+                  <div className="relative h-[240px] w-[70px] gradient-fade-right"></div>
 
-                <CircleArrowRight
-                  className="absolute top-[50%] text-gray-200 ms-[40%] h-[30px] w-[30px] opacity-0 group-hover/cardhover:opacity-100 transition-opacity duration-50"
-                  onClick={() => gotoCard(currentCardIndex + 1)}
-                />
+                  <CircleArrowRight
+                    className="absolute top-[50%] text-gray-200 ms-[40%] h-[30px] w-[30px] opacity-0 group-hover/cardhover:opacity-100 transition-opacity duration-50"
+                    onClick={() => gotoCard(currentCardIndex + 1)}
+                  />
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       </div>
     </div>

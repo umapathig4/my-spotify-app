@@ -4,6 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import Playingbar from "./Components/Playingbar/Playingbar";
 import { Outlet } from "react-router-dom";
 
+
 const PageLayout = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const PageLayout = () => {
         <Sidebar />
         <Outlet />
         <Playingbar />
+       
       </div>
       <Footer />
     </div>

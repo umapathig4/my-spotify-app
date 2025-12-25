@@ -12,16 +12,8 @@ const AlbumTable = () => {
     duration: 10,
   });
 
-  const {
-    setCurrentSong,
-    setCurrentImg,
-    currentSong,
-    isPlaying,
-    togglePlayPause,
-    setPlaylist,
-    setNextSong,
-    setNextImg,
-  } = useAudioContext();
+  const { currentSong, isPlaying, setPlaylist, handlePlayCurrentSong } =
+    useAudioContext();
 
   useEffect(() => {
     setPlaylist(assetDetails);
@@ -89,22 +81,6 @@ const AlbumTable = () => {
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
-  };
-
-  const handlePlayCurrentSong = (assetDetails, index) => {
-    const currentItem = assetDetails[index];
-    const nextIndex = (index + 1) % assetDetails.length;
-    const nextItem = assetDetails[nextIndex];
-
-    if (currentSong === currentItem.song) {
-      togglePlayPause();
-      return;
-    }
-
-    setCurrentSong(currentItem.song);
-    setCurrentImg(currentItem.img);
-    setNextSong(nextItem.song);
-    setNextImg(nextItem.img);
   };
 
   return (
